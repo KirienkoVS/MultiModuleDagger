@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
 
     implementation(project(":secondfeature_api"))
+    implementation(project(":firstfeature_api"))
     implementation(project(":core"))
 
     implementation 'com.google.dagger:dagger:2.45'

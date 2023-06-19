@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.example.multimoduledagger.core.di.HasComponentDependencies
-import com.example.multimoduledagger.core.di.findComponentDependencies
 import com.example.multimoduledagger.firstfeature.R
 import com.example.multimoduledagger.firstfeature.di.DaggerFirstFeatureComponent
 import com.example.multimoduledagger.firstfeature.di.FirstFeatureComponent
@@ -22,7 +20,9 @@ class FirstFeatureFragment : Fragment(R.layout.fragment_first_feature) {
     private val component: FirstFeatureComponent by lazy {
         DaggerFirstFeatureComponent
             .factory()
-            .create(findComponentDependencies())
+            .create(
+//                dependencies = requireActivity().application as FirstFeatureComponentDependencies
+            )
     }
 
     override fun onAttach(context: Context) {
@@ -35,7 +35,7 @@ class FirstFeatureFragment : Fragment(R.layout.fragment_first_feature) {
 
         val button = requireView().findViewById<Button>(R.id.button)
         button.setOnClickListener {
-            secondFeatureMediator.start(android.R.id.content, parentFragmentManager)
+//            secondFeatureMediator.start(android.R.id.content, parentFragmentManager)
         }
     }
 }

@@ -4,12 +4,16 @@ import com.example.multimoduledagger.core.di.FeatureScope
 import dagger.Component
 
 @FeatureScope
-@Component
+@Component(
+    dependencies = [SecondFeatureComponentDependencies::class]
+)
 interface SecondFeatureComponent {
 
     @Component.Factory
     interface Factory {
 
-        fun create(): SecondFeatureComponent
+        fun create(
+            dependencies: SecondFeatureComponentDependencies,
+        ): SecondFeatureComponent
     }
 }

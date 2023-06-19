@@ -6,9 +6,8 @@ import dagger.Component
 
 @FeatureScope
 @Component(
-    dependencies = [
-        FirstFeatureComponentDependencies::class,
-    ],
+    modules = [FirstFeatureModule::class],
+//    dependencies = [FirstFeatureComponentDependencies::class],
 )
 interface FirstFeatureComponent {
 
@@ -16,7 +15,7 @@ interface FirstFeatureComponent {
     interface Factory {
 
         fun create(
-            dependencies: FirstFeatureComponentDependencies,
+//            dependencies: FirstFeatureComponentDependencies,
         ): FirstFeatureComponent
     }
 
